@@ -1,0 +1,23 @@
+{
+  "name": "fortnite.js",
+  "version": "0.1.0",
+  "description": "A powerful Fortnite JavaScript API Wrapper",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ickerio/fortnite.js.git"
+  },
+  "keywords": [
+    "fortnite",
+    "api",
+    "wrapper"
+  ],
+  "author": "ickerio",
+  "license": "ISC",
+  "dependencies": {
+    "snekfetch": "^3.6.1"
+  }
+}
