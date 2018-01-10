@@ -1,8 +1,15 @@
-module.exports = {
-    // Base Class
-    Client: require('./Client'),
+const Client = require('./Client');
 
-    Profile: require('./Profile'),
+// Platforms
+Client.PC = 'pc';
+Client.XBOX = 'xbl';
+Client.PS4 = 'psn';
 
-    version: require('../package.json').version
-};
+// Game Types
+Client.SOLO = 'p2';
+Client.DUO = 'p10';
+Client.SQUAD = 'p9';
+
+Client.version = require('../package.json').version;
+
+module.exports = Client;

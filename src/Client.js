@@ -1,7 +1,7 @@
 const snekfetch = require('snekfetch');
 const Package = require('../package.json');
 
-const Profile = require('./Profile');
+const Account = require('./Account');
 
 class Client {
     constructor(key) {
@@ -12,16 +12,16 @@ class Client {
 
         this.key = key;
 
-        this._headers = {
+        this.headers = {
             'User-Agent': `fortnite.js v${Package.version} (${Package.homepage})`,
             'TRN-Api-Key': this.key
         };
     }
 
-    get(username, platform) {
-        return snekfetch.get(`https://api.fortnitetracker.com/v1/profile/${platform}/${username}`)
-            .set(this._headers)
-            .then(r => r.body.error ? Promise.reject(r.body.error) : new Profile(r.body))
+    get(username, platform = 'pc') {
+        return snekfetch.get(`https://api.fortnitetracker.com/v1/profile/${platform}/${username.replace(/ /g, '%20')}`)
+            .set(this.headers)
+            .then(r => r.body.error ? Promise.reject(r.body.error) : new Account(r.body))
             .catch(e => Promise.reject(`HTTP ${e}`));
     }
 
