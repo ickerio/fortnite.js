@@ -12,12 +12,28 @@ class Account {
         this.stats = this._structureStats(content.lifeTimeStats);
     }
 
-    _structureStats(stats) {
-        const newStats = {};
-        for (var s of stats) {
-            newStats[s.key] = s.value;
+    _structureStats(oldStats) {
+        const stats = {};
+        for (var s of oldStats) {
+            stats[s.key] = s.value;
         }
-        return newStats;
+
+        return {
+            top3: stats['Top 3s'],
+            top5: stats['Top 5s'],
+            top6: stats['Top 6s'],
+            top12: stats['Top 12s'],
+            top25: stats['Top 25s'],
+            score: stats['Score'],
+            matches: stats['Matches Played'],
+            top1: stats['Wins'],
+            winPercent: stats['Win%'],
+            kills: stats['Kills'],
+            kd: stats['K/d'],
+            kpm: stats['Kills Per Min'],
+            timePlayed: stats['Time Played'],
+            avgTimePlayed: stats['Avg Survival Time'],
+        };
     }
 
     _structureGame(game) {
