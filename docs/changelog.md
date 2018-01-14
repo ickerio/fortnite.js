@@ -1,5 +1,8 @@
 # fortnite.js Changelog
 
+# v1.2.1
+ - Changed the examples according to update v1.2
+
 # v1.2.0
  - Updated API documentation
  - Restructured `<fortnite>.stats` into a nicer object.
