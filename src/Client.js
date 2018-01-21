@@ -25,7 +25,7 @@ class Client {
     }
 
     get(username, platform = 'pc') {
-        return snekfetch.get(`https://api.fortnitetracker.com/v1/profile/${platform}/${username.replace(/ /g, '%20')}`)
+        return snekfetch.get(`https://api.fortnitetracker.com/v1/profile/${platform}/${encodeURI(username)}`)
             .set(this.headers)
             .then(r => {
                 
