@@ -1,5 +1,8 @@
 # fortnite.js Changelog
 
+# v1.2.2
+ - Better support for URI encoding in usernames
+
 # v1.2.1
  - Changed the examples according to update v1.2
 
