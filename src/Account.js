@@ -1,3 +1,5 @@
+const Match = require('./Match');
+
 class Account {
     constructor(content) {
         this.accountId = content.accountId;
@@ -10,6 +12,7 @@ class Account {
         this.duo = this._structureGame(content.stats.p10);
         this.squad = this._structureGame(content.stats.p9);
         this.stats = this._structureStats(content.lifeTimeStats);
+        this.recentMatches = content.recentMatches.map(m => new Match(m));
     }
 
     _structureStats(oldStats) {

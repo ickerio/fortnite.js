@@ -8,6 +8,7 @@
 - [Account](#Account)
     * [Solo, Duo, Squad Stats](#accountsoloaccountduoaccountsquad)
     * [Lifetime Stats](#accountstats)
+    * [Recent Matches](#accountrecentmatches)
 
 ## Client
 
@@ -34,6 +35,7 @@
 #### `<Account>.solo` / `<Account>.duo` / `<Account>.squad`
 
 Each one below is an <[Object]>
+- TRN Rating: `trnRating`
 - Score: `score` 
 - Top 1: `top1` 
 - Top 3: `top3` 
@@ -82,6 +84,26 @@ A summarised life time stats of the above, but each is not an object, only a hum
 - Time Played: `timePlayed`
 - Avg Survival Time: `avgTimePlayed`
 
+#### `<Account>.recentMatches`
+An array of recent matches from the player, each containing the following objects. The API strangely groups up the matches hence `matches`, I'm currently looking further into it to better understand it.
+- `id`
+- `accountId`
+- `playlist`
+- `kills`
+- `minutesPlayed`
+- `top1`
+- `top5`
+- `top6`
+- `top10`
+- `top12`
+- `top25`
+- `matches`
+- `top3`
+- `dateCollected`
+- `score`
+- `platform`
+- `trnRating`
+- `trnRatingChange`
 
 
 [String]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String "String"

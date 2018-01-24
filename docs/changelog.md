@@ -1,5 +1,9 @@
 # fortnite.js Changelog
 
+# v1.3.0
+- Added support for the recent (unannounced) API addition of `recentMatches`. You can now see how your performed in your recent sessions!
+- Addded support for TRN Rating object in `solo`, `duo` and `squad`, which is another accurate measurement to get a players overall ranking.
+
 # v1.2.2
  - Better support for URI encoding in usernames
 
