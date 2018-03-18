@@ -1,5 +1,8 @@
 # fortnite.js Changelog
 
+# v1.3.1
+- Added raw parameter in `<Client>.get()`, will just output unfiltered JSON data if `true`, default `false`. Will basically allow you to access data if it has not been added to the api wrapper.
+
 # v1.3.0
 - Added support for the recent (unannounced) API addition of `recentMatches`. You can now see how your performed in your recent sessions!
 - Addded support for TRN Rating object in `solo`, `duo` and `squad`, which is another accurate measurement to get a players overall ranking.

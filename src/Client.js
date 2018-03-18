@@ -24,7 +24,7 @@ class Client {
 
     }
 
-    get(username, platform = 'pc') {
+    get(username, platform = 'pc', raw = false) {
         return snekfetch.get(`https://api.fortnitetracker.com/v1/profile/${platform}/${encodeURI(username)}`)
             .set(this.headers)
             .then(r => {
@@ -36,7 +36,7 @@ class Client {
 
                 if (r.body.error || r.body.message) return Promise.reject(r.body.error);
 
-                return new Account(r.body);
+                return raw ? r.body : new Account(r.body);
             })
             .catch(e => Promise.reject(`HTTP ${e}`));
     }

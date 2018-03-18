@@ -3,7 +3,7 @@
 
 **Table Of Contents**
 - [Client](#Client)
-    * [get()](#clientgetusernameplatform)
+    * [get()](#clientgetusernameplatformraw)
     * [Platforms](#platforms)
 - [Account](#Account)
     * [Solo, Duo, Squad Stats](#accountsoloaccountduoaccountsquad)
@@ -12,9 +12,10 @@
 
 ## Client
 
-#### Client#get(username, platform)
+#### Client#get(username, platform, raw)
 - `username` <[String]> Epic Games / Xbox Live / Playstation Network username
 - `platform` <[Platform]>
+- `raw` <[Boolean]> default: `false`, if `true` will return just raw JSON api data
 - Returns: <[Account]>
 
 #### Platforms
@@ -111,6 +112,7 @@ An array of recent matches from the player, each containing the following object
 [Array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array "Array"
 [Number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type "Number"
 [Map]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map "Map"
+[Boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean "Boolean"
 
 [Account]: #account "Account"
 [Client]: #client "Client"
