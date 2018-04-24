@@ -33,7 +33,7 @@
 | `platformNameLong` | <[String]> | Human readable platform name    |
 | `displayName`      | <[String]> | Account holders display name    |
 
-#### `<Account>.solo` / `<Account>.duo` / `<Account>.squad`
+#### `<Account>.solo` / `<Account>.duo` / `<Account>.squad` 
 
 Each one below is an <[Object]>
 - TRN Rating: `trnRating`

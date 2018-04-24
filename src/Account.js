@@ -11,8 +11,13 @@ class Account {
         this.solo = this._structureGame(content.stats.p2);
         this.duo = this._structureGame(content.stats.p10);
         this.squad = this._structureGame(content.stats.p9);
-        this.stats = this._structureStats(content.lifeTimeStats);
+
+        this.curr_solo = this._structureGame(content.stats.curr_p2);
+        this.curr_duo = this._structureGame(content.stats.curr_p10);
+        this.curr_squad = this._structureGame(content.stats.curr_p9);
+
         this.recentMatches = content.recentMatches.map(m => new Match(m));
+        this.stats = this._structureStats(content.lifeTimeStats);
     }
 
     _structureStats(oldStats) {
