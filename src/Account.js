@@ -16,6 +16,10 @@ class Account {
         this.curr_duo = this._structureGame(content.stats.curr_p10);
         this.curr_squad = this._structureGame(content.stats.curr_p9);
 
+        this.prior_solo = this._structureGame(content.stats.prior_p2);
+        this.prior_duo = this._structureGame(content.stats.prior_p10);
+        this.prior_squad = this._structureGame(content.stats.prior_p9);
+
         this.recentMatches = content.recentMatches.map(m => new Match(m));
         this.stats = this._structureStats(content.lifeTimeStats);
     }
@@ -37,10 +41,7 @@ class Account {
             top1: stats['Wins'],
             winPercent: stats['Win%'],
             kills: stats['Kills'],
-            kd: stats['K/d'],
-            kpm: stats['Kills Per Min'],
-            timePlayed: stats['Time Played'],
-            avgTimePlayed: stats['Avg Survival Time'],
+            kd: stats['K/d']
         };
     }
 
