@@ -1,8 +1,12 @@
 # fortnite.js Changelog
 
+# v1.3.4
+ - Added prior solo/duo/squad to wrapper
+ - Remove time-based stats that Fortnite stopped sending
+ - (Thanks abhinavk99 for your contribution!)
+
 # v1.3.3
 - Added cur season stuff for solo, duo and squad (Account.cur_solo etc)
-
 
 # v1.3.1
 - Added raw parameter in `<Client>.get()`, will just output unfiltered JSON data if `true`, default `false`. Will basically allow you to access data if it has not been added to the api wrapper.

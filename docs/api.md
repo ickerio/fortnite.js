@@ -33,7 +33,9 @@
 | `platformNameLong` | <[String]> | Human readable platform name    |
 | `displayName`      | <[String]> | Account holders display name    |
 
-#### `<Account>.solo` / `<Account>.duo` / `<Account>.squad` 
+#### `<Account>.solo` / `<Account>.duo` / `<Account>.squad`
+Also `<Account>.prior_solo` / `<Account>.prior_duo` / `<Account>.prior_squad`
+And `<Account>.curr_solo` / `<Account>.curr_duo` / `<Account>.curr_squad`
 
 Each one below is an <[Object]>
 - TRN Rating: `trnRating`
@@ -81,9 +83,6 @@ A summarised life time stats of the above, but each is not an object, only a hum
 - Win%: `winPercent`
 - Kills: `kills`
 - K/d: `kd`
-- Kills Per Min: `kpm`
-- Time Played: `timePlayed`
-- Avg Survival Time: `avgTimePlayed`
 
 #### `<Account>.recentMatches`
 An array of recent matches from the player, each containing the following objects. The API strangely groups up the matches hence `matches`, I'm currently looking further into it to better understand it.
