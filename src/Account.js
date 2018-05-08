@@ -41,10 +41,7 @@ class Account {
             top1: stats['Wins'],
             winPercent: stats['Win%'],
             kills: stats['Kills'],
-            kd: stats['K/d'],
-            kpm: stats['Kills Per Min'],
-            timePlayed: stats['Time Played'],
-            avgTimePlayed: stats['Avg Survival Time'],
+            kd: stats['K/d']
         };
     }
 
