@@ -28,4 +28,4 @@ client.get('ickerio', fortnite.PC)
 ```
 
 # Issues
-If you run into any issues, have any queries or concerns or would just like to make a few suggestions please do not hesitate to open an issue, pull request or message me on Discord at `rabb#7134`
+If you run into any issues, have any queries or concerns or would just like to make a few suggestions please do not hesitate to join our [discord support server](https://discord.gg/yCWj2N2)
