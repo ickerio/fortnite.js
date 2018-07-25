@@ -1,5 +1,8 @@
 # fortnite.js Changelog
 
+# v1.3.5
+ - Removed prior_
+
 # v1.3.4
  - Added prior solo/duo/squad to wrapper
  - Remove time-based stats that Fortnite stopped sending
