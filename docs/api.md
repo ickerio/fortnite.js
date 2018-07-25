@@ -34,8 +34,9 @@
 | `displayName`      | <[String]> | Account holders display name    |
 
 #### `<Account>.solo` / `<Account>.duo` / `<Account>.squad`
-Also `<Account>.prior_solo` / `<Account>.prior_duo` / `<Account>.prior_squad`
 And `<Account>.curr_solo` / `<Account>.curr_duo` / `<Account>.curr_squad`
+
+**NOTE:** `curr` means just this current season while the rest is your whole fortnite carreer.
 
 Each one below is an <[Object]>
 - TRN Rating: `trnRating`
