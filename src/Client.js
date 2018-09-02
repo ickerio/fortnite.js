@@ -2,6 +2,7 @@ const snekfetch = require('snekfetch');
 const Package = require('../package.json');
 
 const Account = require('./Account');
+const Match = require('./Match').Match;
 
 class Client {
     constructor(key) {
@@ -24,11 +25,11 @@ class Client {
 
     }
 
-    get(username, platform = 'pc', raw = false) {
-        return snekfetch.get(`https://api.fortnitetracker.com/v1/profile/${platform}/${encodeURI(username)}`)
+    _request(link) {
+        return snekfetch.get(link)
             .set(this.headers)
             .then(r => {
-                
+
                 this.rateLimit = {
                     limit: Number(r.headers['x-ratelimit-limit-minute']),
                     remaining: Number(r.headers['x-ratelimit-remaining-minute'])
@@ -36,11 +37,22 @@ class Client {
 
                 if (r.body.error || r.body.message) return Promise.reject(r.body.error);
 
-                return raw ? r.body : new Account(r.body);
+                return r.body;
             })
             .catch(e => Promise.reject(`HTTP ${e}`));
     }
 
+    get(username, platform = 'pc', raw = false) {
+        return this._request(`https://api.fortnitetracker.com/v1/profile/${platform}/${encodeURI(username)}`)
+            .then(r => raw ? r : new Account(r))
+            .catch(e => e);
+    }
+
+    getMatches(accountId, raw = false) {
+        return this._request(`https://api.fortnitetracker.com/v1/profile/account/${accountId}/matches`)
+            .then(r => raw ? r : r.map(m => new Match(m)))
+            .catch(e => e);
+    }
 }
 
 module.exports = Client;
