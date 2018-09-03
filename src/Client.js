@@ -3,6 +3,8 @@ const Package = require('../package.json');
 
 const Account = require('./Account');
 const Match = require('./Match').Match;
+const StoreItem = require('./StoreItem');
+const Challenges = require('./Challenges');
 
 class Client {
     constructor(key) {
@@ -51,6 +53,18 @@ class Client {
     getMatches(accountId, raw = false) {
         return this._request(`https://api.fortnitetracker.com/v1/profile/account/${accountId}/matches`)
             .then(r => raw ? r : r.map(m => new Match(m)))
+            .catch(e => e);
+    }
+
+    getStore(raw = false) {
+        return this._request(`https://api.fortnitetracker.com/v1/store`)
+            .then(r => raw ? r : r.map(item => new StoreItem(item)))
+            .catch(e => e);
+    }
+
+    getChallenges(raw = false) {
+        return this._request(`https://api.fortnitetracker.com/v1/challenges`)
+            .then(r => raw ? r : new Challenges(r))
             .catch(e => e);
     }
 }
