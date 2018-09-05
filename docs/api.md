@@ -1,6 +1,8 @@
 # fortnite.js Documentation
 **Version 1.0**
 
+Note: v2 docs are on their way
+
 **Table Of Contents**
 - [Client](#Client)
     * [get()](#clientgetusernameplatformraw)
