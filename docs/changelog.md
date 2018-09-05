@@ -1,5 +1,12 @@
 # fortnite.js Changelog
 
+# v2.0.0
+ - Added match history
+ - Added fortnite store
+ - Added active challenges
+ - (Thanks abhinavk99 for your contribution!)
+ - Docs to be updated shortly
+
 # v1.3.5
  - Removed prior_
 
