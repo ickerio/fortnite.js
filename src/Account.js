@@ -1,4 +1,4 @@
-const Match = require('./Match');
+const RecentMatch = require('./Match').RecentMatch;
 
 class Account {
     constructor(content) {
@@ -16,7 +16,7 @@ class Account {
         this.curr_duo = this._structureGame(content.stats.curr_p10);
         this.curr_squad = this._structureGame(content.stats.curr_p9);
 
-        this.recentMatches = content.recentMatches.map(m => new Match(m));
+        this.recentMatches = content.recentMatches.map(m => new RecentMatch(m));
         this.stats = this._structureStats(content.lifeTimeStats);
     }
 

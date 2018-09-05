@@ -1,10 +1,8 @@
 class Match {
     constructor(content) {
         this.id = content.id;
-        this.accountId = content.accountId;
         this.playlist = content.playlist;
         this.kills = content.kills;
-        this.minutesPlayed = content.minutesPlayed;
         this.top1 = content.top1;
         this.top5 = content.top5;
         this.top6 = content.top6;
@@ -15,10 +13,22 @@ class Match {
         this.top3 = content.top3;
         this.dateCollected = content.dateCollected;
         this.score = content.score;
-        this.platform = content.platform;
         this.trnRating = content.trnRating;
+    }
+}
+
+class RecentMatch extends Match {
+    constructor(content) {
+        super(content);
+
+        this.accountId = content.accountId;
+        this.minutesPlayed = content.minutesPlayed;
+        this.platform = content.platform;
         this.trnRatingChange = content.trnRatingChange;
     }
 }
 
-module.exports = Match;
+module.exports = {
+    RecentMatch: RecentMatch,
+    Match: Match
+};
