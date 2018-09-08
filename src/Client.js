@@ -47,25 +47,25 @@ class Client {
     get(username, platform = 'pc', raw = false) {
         return this._request(`https://api.fortnitetracker.com/v1/profile/${platform}/${encodeURI(username)}`)
             .then(r => raw ? r : new Account(r))
-            .catch(e => e);
+            .catch(e => Promise.reject(e));
     }
 
     getMatches(accountId, raw = false) {
         return this._request(`https://api.fortnitetracker.com/v1/profile/account/${accountId}/matches`)
             .then(r => raw ? r : r.map(m => new Match(m)))
-            .catch(e => e);
+            .catch(e => Promise.reject(e));
     }
 
     getStore(raw = false) {
         return this._request(`https://api.fortnitetracker.com/v1/store`)
             .then(r => raw ? r : r.map(item => new StoreItem(item)))
-            .catch(e => e);
+            .catch(e => Promise.reject(e));
     }
 
     getChallenges(raw = false) {
         return this._request(`https://api.fortnitetracker.com/v1/challenges`)
             .then(r => raw ? r : new Challenges(r))
-            .catch(e => e);
+            .catch(e => Promise.reject(e));
     }
 }
 
