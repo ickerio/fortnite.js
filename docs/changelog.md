@@ -1,5 +1,8 @@
 # fortnite.js Changelog
 
+# v2.0.1
+ - Fix handling errors
+
 # v2.0.0
  - Added match history
  - Added fortnite store
