@@ -1,5 +1,8 @@
 # fortnite.js Changelog
 
+# v__NEXT__
+ - Updated `snekfetch` package
+
 # v2.0.2
  - Now using JSdoc, hopefully to fortnite.js.org soon!
  - Using travis for some auto tests as well

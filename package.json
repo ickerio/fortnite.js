@@ -24,7 +24,7 @@
   "author": "ickerio",
   "license": "ISC",
   "dependencies": {
-    "snekfetch": "^3.6.4"
+    "snekfetch": "^4.0.0"
   },
   "devDependencies": {
     "jsdoc": "^3.5.5",
