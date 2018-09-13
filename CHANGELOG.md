@@ -1,5 +1,9 @@
 # fortnite.js Changelog
 
+# v2.0.2
+ - Now using JSdoc, hopefully to fortnite.js.org soon!
+ - Using travis for some auto tests as well
+
 # v2.0.1
  - Fix handling errors
 

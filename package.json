@@ -4,7 +4,8 @@
   "description": "A powerful Fortnite JavaScript API Wrapper",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"TODO: Add Tests\"",
+    "docs": "./node_modules/.bin/jsdoc src README.md -t ./node_modules/minami && echo fortnite.js.org > ./out/CNAME"
   },
   "repository": {
     "type": "git",
@@ -18,11 +19,15 @@
   "bugs": {
     "url": "https://github.com/ickerio/fortnite.js/issues"
   },
-  "runkitExampleFilename": "docs/example.js",
+  "runkitExampleFilename": "example.js",
   "homepage": "https://github.com/ickerio/fortnite.js#readme",
   "author": "ickerio",
   "license": "ISC",
   "dependencies": {
     "snekfetch": "^3.6.4"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.5.5",
+    "minami": "^1.2.3"
   }
 }

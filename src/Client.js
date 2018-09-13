@@ -86,7 +86,7 @@ class Client {
     /**
      * Get current store items
      * @param {boolean=} [raw=false] whether to return raw response from API
-     * @returns {9Promise<Array<StoreItem>>|Promise<Array<Object>>)}
+     * @returns {Promise<Array<StoreItem>>|Promise<Array<Object>>}
      * @memberof Client
      */
     getStore(raw = false) {
