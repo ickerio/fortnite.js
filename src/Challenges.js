@@ -1,5 +1,13 @@
+/**
+ * An API returned Challenges object
+ * @class Challenges
+ */
 class Challenges {
     constructor(content) {
+        /**
+         * Store items
+         * @type {Array<Object>}
+         */
         this.items = this._structureItems(content.items);
     }
 

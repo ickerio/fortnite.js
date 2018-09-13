@@ -6,6 +6,11 @@ const Match = require('./Match').Match;
 const StoreItem = require('./StoreItem');
 const Challenges = require('./Challenges');
 
+/**
+ * The client for interacting with the Fortnite Tracker API
+ * @class Client
+ * @param {string} key Fortnite Tracker API token
+ */
 class Client {
     constructor(key) {
 
@@ -27,6 +32,13 @@ class Client {
 
     }
 
+    /**
+     * Makes the request to the API
+     * @private
+     * @param {string} link URL endpoint of API
+     * @returns {Promise<Object>}
+     * @memberof Client
+     */
     _request(link) {
         return snekfetch.get(link)
             .set(this.headers)
@@ -44,24 +56,51 @@ class Client {
             .catch(e => Promise.reject(`HTTP ${e}`));
     }
 
+    /**
+     * Get user info
+     * @param {string} username username of the user to search for
+     * @param {string=} [platform='pc'] platform to search for user in (pc, xbl, or psn)
+     * @param {boolean=} [raw=false] whether to return raw response from API
+     * @returns {(Promise<Account>|Promise<Object>)}
+     * @memberof Client
+     */
     get(username, platform = 'pc', raw = false) {
         return this._request(`https://api.fortnitetracker.com/v1/profile/${platform}/${encodeURI(username)}`)
             .then(r => raw ? r : new Account(r))
             .catch(e => Promise.reject(e));
     }
 
+    /**
+     * Get user's matches
+     * @param {string} accountId user's account ID found in user info
+     * @param {boolean=} [raw=false] whether to return raw response from API
+     * @returns {(Promise<Array<Match>>|Promise<Array<Object>>)}
+     * @memberof Client
+     */
     getMatches(accountId, raw = false) {
         return this._request(`https://api.fortnitetracker.com/v1/profile/account/${accountId}/matches`)
             .then(r => raw ? r : r.map(m => new Match(m)))
             .catch(e => Promise.reject(e));
     }
 
+    /**
+     * Get current store items
+     * @param {boolean=} [raw=false] whether to return raw response from API
+     * @returns {9Promise<Array<StoreItem>>|Promise<Array<Object>>)}
+     * @memberof Client
+     */
     getStore(raw = false) {
         return this._request(`https://api.fortnitetracker.com/v1/store`)
             .then(r => raw ? r : r.map(item => new StoreItem(item)))
             .catch(e => Promise.reject(e));
     }
 
+    /**
+     * Get currently weekly challenges
+     * @param {boolean=} [raw=false] whether to return raw response from API
+     * @returns {(Promise<Challenges>|Promise<Object>)}
+     * @memberof Client
+     */
     getChallenges(raw = false) {
         return this._request(`https://api.fortnitetracker.com/v1/challenges`)
             .then(r => raw ? r : new Challenges(r))
