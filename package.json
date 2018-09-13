@@ -23,6 +23,6 @@
   "author": "ickerio",
   "license": "ISC",
   "dependencies": {
-    "snekfetch": "^3.6.1"
+    "snekfetch": "^3.6.4"
   }
 }

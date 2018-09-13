@@ -90,7 +90,7 @@ class Client {
      * @memberof Client
      */
     getStore(raw = false) {
-        return this._request(`https://api.fortnitetracker.com/v1/store`)
+        return this._request('https://api.fortnitetracker.com/v1/store')
             .then(r => raw ? r : r.map(item => new StoreItem(item)))
             .catch(e => Promise.reject(e));
     }
@@ -102,7 +102,7 @@ class Client {
      * @memberof Client
      */
     getChallenges(raw = false) {
-        return this._request(`https://api.fortnitetracker.com/v1/challenges`)
+        return this._request('https://api.fortnitetracker.com/v1/challenges')
             .then(r => raw ? r : new Challenges(r))
             .catch(e => Promise.reject(e));
     }
