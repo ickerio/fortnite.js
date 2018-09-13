@@ -2,9 +2,9 @@
 
 <img src="https://user-images.githubusercontent.com/14541442/34761296-23fa9616-f61e-11e7-8530-e6af77046e99.png" width="250" align="right">
 
-###### [API](docs/api.md) | [Changelog](docs/changelog.md) | [Issues](#issues)
+###### [Docs](https://fortnite.js.org) | [Changelog](changelog.md) | [Issues](#issues)
 
-A powerful and super light Fortnite stats API wrapper for Node.js.
+A powerful and super light Fortnite stats API wrapper for Node.js
  
 # Setup and Installation
 1. Signup at [fortnitetracker](https://fortnitetracker.com/)
