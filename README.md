@@ -1,4 +1,4 @@
-# fortnite.js [![npm downloads](https://img.shields.io/npm/dt/fortnite.js.svg?maxAge=3600)](https://www.npmjs.com/package/fortnite.js) [![Dependencies](https://img.shields.io/david/ickerio/fortnite.js.svg?maxAge=3600)](https://david-dm.org/ickerio/fortnite.js) [![RunKit](https://badge.runkitcdn.com/fortnite.js.svg)](https://npm.runkit.com/fortnite.js)
+# fortnite.js [![npm downloads](https://img.shields.io/npm/dt/fortnite.js.svg?maxAge=3600)](https://www.npmjs.com/package/fortnite.js) [![Travis (.org)](https://img.shields.io/travis/ickerio/fortnite.js.svg)](https://travis-ci.org/ickerio/fortnite.js) [![Dependencies](https://img.shields.io/david/ickerio/fortnite.js.svg?maxAge=3600)](https://david-dm.org/ickerio/fortnite.js) [![RunKit](https://badge.runkitcdn.com/fortnite.js.svg)](https://npm.runkit.com/fortnite.js)
 
 <img src="https://user-images.githubusercontent.com/14541442/34761296-23fa9616-f61e-11e7-8530-e6af77046e99.png" width="250" align="right">
 
