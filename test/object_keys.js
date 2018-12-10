@@ -77,4 +77,14 @@ exports.ITEM_KEYS = [
   'rarity',
   'storeCategory',
   'vBucks',
-]
+];
+
+exports.CHALLENGE_KEYS = [
+  'name',
+  'questsCompleted',
+  'questsTotal',
+  'rewardDescription',
+  'rewardName',
+  'rewardPictureUrl',
+  'type'
+];

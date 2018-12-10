@@ -4,7 +4,8 @@ const {
   STATS_KEYS,
   MATCH_KEYS,
   RECENT_MATCH_KEYS,
-  ITEM_KEYS
+  ITEM_KEYS,
+  CHALLENGE_KEYS,
 } = require("./object_keys");
 
 require('dotenv').config();
@@ -115,5 +116,24 @@ test('should get current store with correct response type and structure', async 
     expect(item.rarity).toBeString();
     expect(item.storeCategory).toBeString();
     expect(item.vBucks).toBeNumber();
+  }
+});
+
+test('should get current challenges with correct response type and structure', async () => {
+  const client = new fortnite(API_KEY);
+  const challenges = await client.getChallenges();
+  expect(challenges).toBeObject();
+  expect(challenges).toHaveProperty('items');
+  expect(challenges.items).toBeArray();
+  for (let challenge of challenges.items) {
+    expect(challenge).toBeObject();
+    expect(challenge).toContainAllKeys(CHALLENGE_KEYS);
+    expect(challenge.name).toBeString();
+    expect(challenge.questsCompleted).toBeString();
+    expect(challenge.questsTotal).toBeString();
+    expect(challenge.rewardDescription).toBeUndefined();
+    expect(challenge.rewardName).toBeString();
+    expect(challenge.rewardPictureUrl).toBeString();
+    expect(challenge.type).toBeString();
   }
 });
