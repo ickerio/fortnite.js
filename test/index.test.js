@@ -1,4 +1,11 @@
-const { USER_INFO_KEYS, MODE_KEYS, STATS_KEYS, MATCH_KEYS, RECENT_MATCH_KEYS } = require("./object_keys");
+const {
+  USER_INFO_KEYS,
+  MODE_KEYS,
+  STATS_KEYS,
+  MATCH_KEYS,
+  RECENT_MATCH_KEYS,
+  ITEM_KEYS
+} = require("./object_keys");
 
 require('dotenv').config();
 require('jest-extended');
@@ -93,4 +100,20 @@ test('should get matches with correct response type and structure', async () => 
     expect(match.top6).toBeNumber();
     expect(match.trnRating).toBeNumber();
   }
-})
+});
+
+test('should get current store with correct response type and structure', async () => {
+  const client = new fortnite(API_KEY);
+  const storeItems = await client.getStore();
+  expect(storeItems).toBeArray();
+  for (let item of storeItems) {
+    expect(item).toBeObject();
+    expect(item).toContainAllKeys(ITEM_KEYS);
+    expect(item.imageUrl).toBeString();
+    expect(item.manifestId).toBeNumber();
+    expect(item.name).toBeString();
+    expect(item.rarity).toBeString();
+    expect(item.storeCategory).toBeString();
+    expect(item.vBucks).toBeNumber();
+  }
+});

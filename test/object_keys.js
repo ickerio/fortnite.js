@@ -69,3 +69,12 @@ exports.RECENT_MATCH_KEYS = [
   'platform',
   'trnRatingChange',
 ];
+
+exports.ITEM_KEYS = [
+  'imageUrl',
+  'manifestId',
+  'name',
+  'rarity',
+  'storeCategory',
+  'vBucks',
+]
