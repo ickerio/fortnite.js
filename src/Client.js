@@ -1,4 +1,4 @@
-const snekfetch = require('snekfetch');
+const fetch = require('node-fetch');
 const Package = require('../package.json');
 
 const Account = require('./Account');
@@ -40,18 +40,16 @@ class Client {
      * @memberof Client
      */
     _request(link) {
-        return snekfetch.get(link)
-            .set(this.headers)
+        return fetch(link, { headers: this.headers })
             .then(r => {
-
                 this.rateLimit = {
-                    limit: Number(r.headers['x-ratelimit-limit-minute']),
-                    remaining: Number(r.headers['x-ratelimit-remaining-minute'])
+                    limit: Number(r.headers.get('x-ratelimit-limit-minute')),
+                    remaining: Number(r.headers.get('x-ratelimit-remaining-minute'))
                 };
 
-                if (r.body.error || r.body.message) return Promise.reject(r.body.error);
+                if (!r.ok) return Promise.reject(r.statusText);
 
-                return r.body;
+                return r.json();
             })
             .catch(e => Promise.reject(`HTTP ${e}`));
     }
