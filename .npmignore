@@ -11,3 +11,4 @@ logs/
 .travis.yml
 
 test.js
+.env
