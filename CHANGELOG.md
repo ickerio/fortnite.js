@@ -1,7 +1,8 @@
 # fortnite.js Changelog
 
-# v__NEXT__
- - Updated `snekfetch` package
+# v2.1.0
+ - Added tests
+ - Replaced `snekfetch` package with `node-fetch`
 
 # v2.0.2
  - Now using JSdoc, hopefully to fortnite.js.org soon!
