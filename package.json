@@ -27,13 +27,13 @@
   "author": "ickerio",
   "license": "ISC",
   "dependencies": {
-    "node-fetch": "^2.3.0"
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "dotenv": "^6.2.0",
     "jest": "^23.6.0",
-    "jest-extended": "^0.11.0",
-    "jsdoc": "^3.5.5",
+    "jest-extended": "^0.11.1",
+    "jsdoc": "^3.6.2",
     "minami": "^1.2.3"
   }
 }
