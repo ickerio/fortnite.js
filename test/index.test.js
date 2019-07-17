@@ -17,6 +17,9 @@ const API_KEY = process.env.FORTNITE_KEY;
 const USERNAME = 'ninja';
 const ACCOUNT_ID = '4735ce91-3292-4caf-8a5b-17789b40f79c';
 
+const INVALID_USERNAME = 'neuofiirhuidn';
+const PLAYER_NOT_FOUND_ERROR = { error: 'Player Not Found' };
+
 test('should be defined', () => {
   expect(fortnite).toBeDefined();
 });
@@ -27,6 +30,12 @@ test('should return fortnite.js client', () => {
   expect(client.getMatches).toBeDefined();
   expect(client.getStore).toBeDefined();
   expect(client.getChallenges).toBeDefined();
+});
+
+test('should return error on invalid username', () => {
+  const client = new fortnite(API_KEY);
+  expect.assertions(1);
+  return client.get(INVALID_USERNAME).catch(e => expect(e).toEqual(PLAYER_NOT_FOUND_ERROR));
 });
 
 test('should return user info with correct response type and structure', async () => {

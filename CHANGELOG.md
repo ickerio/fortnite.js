@@ -1,5 +1,8 @@
 # fortnite.js Changelog
 
+# v2.1.3
+ - Fixed error handling
+
 # v2.1.2
  - Updated dependencies to fix security vulnerabilities
 

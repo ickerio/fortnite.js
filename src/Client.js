@@ -24,7 +24,7 @@ class Client {
             'User-Agent': `fortnite.js v${Package.version} (${Package.homepage})`,
             'TRN-Api-Key': this.key
         };
-        
+
         this.rateLimit = {
             limit: 30,
             remaining: 30
@@ -64,6 +64,7 @@ class Client {
      */
     get(username, platform = 'pc', raw = false) {
         return this._request(`https://api.fortnitetracker.com/v1/profile/${platform}/${encodeURI(username)}`)
+            .then(r => r.error ? Promise.reject(r) : r)
             .then(r => raw ? r : new Account(r))
             .catch(e => Promise.reject(e));
     }
@@ -77,6 +78,7 @@ class Client {
      */
     getMatches(accountId, raw = false) {
         return this._request(`https://api.fortnitetracker.com/v1/profile/account/${accountId}/matches`)
+            .then(r => r.error ? Promise.reject(r.error) : r)
             .then(r => raw ? r : r.map(m => new Match(m)))
             .catch(e => Promise.reject(e));
     }
@@ -89,6 +91,7 @@ class Client {
      */
     getStore(raw = false) {
         return this._request('https://api.fortnitetracker.com/v1/store')
+            .then(r => r.error ? Promise.reject(r.error) : r)
             .then(r => raw ? r : r.map(item => new StoreItem(item)))
             .catch(e => Promise.reject(e));
     }
@@ -101,6 +104,7 @@ class Client {
      */
     getChallenges(raw = false) {
         return this._request('https://api.fortnitetracker.com/v1/challenges')
+            .then(r => r.error ? Promise.reject(r.error) : r)
             .then(r => raw ? r : new Challenges(r))
             .catch(e => Promise.reject(e));
     }
