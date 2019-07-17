@@ -1,6 +1,6 @@
 {
   "name": "fortnite.js",
-  "version": "2.1.0",
+  "version": "2.1.2",
   "description": "A powerful Fortnite JavaScript API Wrapper",
   "main": "src/index.js",
   "scripts": {
@@ -8,7 +8,9 @@
     "docs": "./node_modules/.bin/jsdoc src README.md -t ./node_modules/minami && echo fortnite.js.org > ./out/CNAME"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "./test/index.test.js"
+    "setupFilesAfterEnv": [
+      "./test/index.test.js"
+    ]
   },
   "repository": {
     "type": "git",
@@ -31,8 +33,8 @@
   },
   "devDependencies": {
     "dotenv": "^6.2.0",
-    "jest": "^23.6.0",
-    "jest-extended": "^0.11.1",
+    "jest": "^24.8.0",
+    "jest-extended": "^0.11.2",
     "jsdoc": "^3.6.2",
     "minami": "^1.2.3"
   }

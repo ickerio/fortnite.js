@@ -1,5 +1,11 @@
 # fortnite.js Changelog
 
+# v2.1.2
+ - Updated dependencies to fix security vulnerabilities
+
+# v2.1.1
+ - Should fix some security issues
+
 # v2.1.0
  - Added tests
  - Replaced `snekfetch` package with `node-fetch`
