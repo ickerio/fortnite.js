@@ -5,8 +5,8 @@ const {
   MATCH_KEYS,
   RECENT_MATCH_KEYS,
   ITEM_KEYS,
-  CHALLENGE_KEYS,
-} = require("./object_keys");
+  CHALLENGE_KEYS
+} = require('./object_keys');
 
 require('dotenv').config();
 require('jest-extended');
@@ -140,7 +140,8 @@ test('should get current challenges with correct response type and structure', a
     expect(challenge.name).toBeString();
     expect(challenge.questsCompleted).toBeString();
     expect(challenge.questsTotal).toBeString();
-    expect(challenge.rewardDescription).toBeUndefined();
+    expect(challenge.rewardDescription).toBeString();
+    expect(challenge.rewardDescription).toEqual('None');
     expect(challenge.rewardName).toBeString();
     expect(challenge.rewardPictureUrl).toBeString();
     expect(challenge.type).toBeString();

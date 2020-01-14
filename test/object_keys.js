@@ -11,25 +11,28 @@ exports.USER_INFO_KEYS = [
   'platformName',
   'platformNameLong',
   'recentMatches',
-  'stats',
+  'stats'
 ];
 
 exports.MODE_KEYS = [
-  'kd',
-  'kills',
-  'kpg',
-  'matches',
   'score',
-  'scorePerMatch',
   'top1',
-  'top10',
-  'top12',
-  'top25',
   'top3',
   'top5',
   'top6',
-  'trnRating',
+  'top10',
+  'top12',
+  'top25',
+  'kd',
   'winRatio',
+  'matches',
+  'kills',
+  'minutesPlayed',
+  'kpm',
+  'kpg',
+  'avgTimePlayed',
+  'scorePerMatch',
+  'scorePerMin'
 ];
 
 exports.STATS_KEYS = [
@@ -43,7 +46,7 @@ exports.STATS_KEYS = [
   'top3',
   'top5',
   'top6',
-  'winPercent',
+  'winPercent'
 ];
 
 exports.MATCH_KEYS = [
@@ -60,24 +63,12 @@ exports.MATCH_KEYS = [
   'top3',
   'top5',
   'top6',
-  'trnRating',
+  'trnRating'
 ];
 
-exports.RECENT_MATCH_KEYS = [
-  'accountId',
-  'minutesPlayed',
-  'platform',
-  'trnRatingChange',
-];
+exports.RECENT_MATCH_KEYS = ['accountId', 'minutesPlayed', 'platform', 'trnRatingChange'];
 
-exports.ITEM_KEYS = [
-  'imageUrl',
-  'manifestId',
-  'name',
-  'rarity',
-  'storeCategory',
-  'vBucks',
-];
+exports.ITEM_KEYS = ['imageUrl', 'manifestId', 'name', 'rarity', 'storeCategory', 'vBucks'];
 
 exports.CHALLENGE_KEYS = [
   'name',
