@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Account.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Account.html">Account</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Challenges.html">Challenges</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Client.html">Client</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Client.html#get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Client.html#getChallenges">getChallenges</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Client.html#getMatches">getMatches</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Client.html#getStore">getStore</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Match.html">Match</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="RecentMatch.html">RecentMatch</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="StoreItem.html">StoreItem</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Account.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const RecentMatch = require('./Match').RecentMatch;
+
+/**
+ * An API returned Account object
+ * @class Account
+ */
+class Account {
+    constructor(content) {
+        /**
+         * Account ID
+         * @type {string}
+         */
+        this.accountId = content.accountId;
+
+        /**
+         * Platform ID
+         * @type {string}
+         */
+        this.platformId = content.platformId;
+
+        /**
+         * Platform Name
+         * @type {string}
+         */
+        this.platformName = content.platformName;
+
+        /**
+         * Longer platform name
+         * @type {string}
+         */
+        this.platformNameLong = content.platformNameLong;
+
+        /**
+         * Account username
+         * @type {string}
+         */
+        this.displayName = content.epicUserHandle;
+
+        /**
+         * Stats for solo game mode
+         * @type {Object}
+         * @property {Object} solo.trnRating TRN rating in solo
+         * @property {Object} solo.score Score in solo
+         * @property {Object} solo.top1 Number of wins in solo
+         * @property {Object} solo.top3 Number of times in top 3 in solo
+         * @property {Object} solo.top5 Number of times in top 5 in solo
+         * @property {Object} solo.top6 Number of times in top 6 in solo
+         * @property {Object} solo.top10 Number of times in top 10 in solo
+         * @property {Object} solo.top12 Number of times in top 12 in solo
+         * @property {Object} solo.top25 Number of times in top 25 in solo
+         * @property {Object} solo.kd Kill/Death ratio in solo
+         * @property {Object} solo.winRatio Win ratio in solo
+         * @property {Object} solo.matches Number of matches in solo
+         * @property {Object} solo.kills Number of kills in solo
+         * @property {Object} solo.kpg Average kills per game in solo
+         * @property {Object} solo.scorePerMatch Score per match in solo
+         */
+        this.solo = this._structureGame(content.stats.p2);
+
+        /**
+         * Stats for duo game mode
+         * Has same properties as solo
+         * @type {Object}
+         */
+        this.duo = this._structureGame(content.stats.p10);
+
+        /**
+         * Stats for squad game mode
+         * Has same properties as solo
+         * @type {Object}
+         */
+        this.squad = this._structureGame(content.stats.p9);
+
+        /**
+         * Stats for solo game mode in the current season
+         * Has same properties as solo
+         * @type {Object}
+         */
+        this.curr_solo = this._structureGame(content.stats.curr_p2);
+
+        /**
+         * Stats for squad game mode in the current season
+         * Has same properties as solo
+         * @type {Object}
+         */
+        this.curr_duo = this._structureGame(content.stats.curr_p10);
+
+        /**
+         * Stats for squad game mode in the current season
+         * Has same properties as solo
+         * @type {Object}
+         */
+        this.curr_squad = this._structureGame(content.stats.curr_p9);
+
+        /**
+         * Recent matches that user has played
+         * @type {Array&lt;RecentMatch>}
+         */
+        this.recentMatches = content.recentMatches.map(m => new RecentMatch(m));
+
+        /**
+         * Lifetime stats for the user
+         * @type {Object}
+         * @property {string} stats.top3 Number of times in top 3
+         * @property {string} stats.top5 Number of times in top 5
+         * @property {string} stats.top6 Number of times in top 6
+         * @property {string} stats.top12 Number of times in top 12
+         * @property {string} stats.top25 Number of times in top 25
+         * @property {string} stats.score Lifetime score
+         * @property {string} stats.matches Number of matches
+         * @property {string} stats.top1 Number of wins
+         * @property {string} stats.winPercent Win percentage
+         * @property {string} stats.kills Number of kills
+         * @property {string} stats.kd Kill/Death ratio
+         */
+        this.stats = this._structureStats(content.lifeTimeStats);
+    }
+
+    _structureStats(oldStats) {
+        const stats = {};
+        for (var s of oldStats) {
+            stats[s.key] = s.value;
+        }
+
+        return {
+            top3: stats['Top 3s'],
+            top5: stats['Top 5s'],
+            top6: stats['Top 6s'],
+            top12: stats['Top 12s'],
+            top25: stats['Top 25s'],
+            score: stats['Score'],
+            matches: stats['Matches Played'],
+            top1: stats['Wins'],
+            winPercent: stats['Win%'],
+            kills: stats['Kills'],
+            kd: stats['K/d']
+        };
+    }
+
+    _structureGame(game) {
+        const newGame = {};
+        for (const s in game) {
+            const data = game[s];
+            newGame[s] = {
+                fullName: data.label,
+                name: data.field,
+                category: data.category,
+                value: data.value,
+                valueInt: data.valueInt,
+                rank: data.rank,
+                percentile: data.percentile,
+                displayValue: data.displayValue
+            };
+        }
+        return newGame;
+    }
+}
+
+module.exports = Account;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Tue Jan 14 2020 08:15:13 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

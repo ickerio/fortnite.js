@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Match.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Account.html">Account</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Challenges.html">Challenges</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Client.html">Client</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Client.html#get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Client.html#getChallenges">getChallenges</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Client.html#getMatches">getMatches</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Client.html#getStore">getStore</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Match.html">Match</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="RecentMatch.html">RecentMatch</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="StoreItem.html">StoreItem</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Match.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * An API returned Match object
+ * @class Match
+ */
+class Match {
+    constructor(content) {
+        /**
+         * Match ID
+         * @type {number}
+         */
+        this.id = content.id;
+
+        /**
+         * Game mode
+         * @type {string}
+         */
+        this.playlist = content.playlist;
+
+        /**
+         * Number of kills
+         * @type {number}
+         */
+        this.kills = content.kills;
+
+        /**
+         * Number of wins
+         * @type {number}
+         */
+        this.top1 = content.top1;
+
+        /**
+         * Number of times in top 5
+         * @type {number}
+         */
+        this.top5 = content.top5;
+
+        /**
+         * Number of times in top 6
+         * @type {number}
+         */
+        this.top6 = content.top6;
+
+        /**
+         * Number of times in top 10
+         * @type {number}
+         */
+        this.top10 = content.top10;
+
+        /**
+         * Number of times in top 12
+         * @type {number}
+         */
+        this.top12 = content.top12;
+
+        /**
+         * Number of times in top 25
+         * @type {number}
+         */
+        this.top25 = content.top25;
+
+        /**
+         * Number of matches
+         * @type {number}
+         */
+        this.matches = content.matches;
+
+        /**
+         * Number of times in top 3
+         * @type {number}
+         */
+        this.top3 = content.top3;
+
+        /**
+         * Date collected in ISO 8601
+         * @type {string}
+         */
+        this.dateCollected = content.dateCollected;
+
+        /**
+         * Score gained from the match group
+         * @type {number}
+         */
+        this.score = content.score;
+
+        /**
+         * TRN rating gained from the match group
+         * @type {number}
+         */
+        this.trnRating = content.trnRating;
+    }
+}
+
+/**
+ * An API returned RecentMatch object
+ * @class RecentMatch
+ * @extends Match
+ */
+class RecentMatch extends Match {
+    constructor(content) {
+        super(content);
+
+        this.accountId = content.accountId;
+        this.minutesPlayed = content.minutesPlayed;
+        this.platform = content.platform;
+        this.trnRatingChange = content.trnRatingChange;
+    }
+}
+
+module.exports = {
+    RecentMatch: RecentMatch,
+    Match: Match
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Tue Jan 14 2020 08:15:13 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
